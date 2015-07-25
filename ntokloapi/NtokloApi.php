@@ -16,6 +16,23 @@ class NtokloApi extends Curl{
         $this->secret = $secret;
     }
 
+
+    /**
+     * This function will allow to post a decoded json object into the nToklo api
+     * @uses array | decode json object
+     * Example:
+     * $data = array("version" => "1.2",
+     *               "user" => array("user_id" => "112"),
+     *               "product" => array("id"                => "10201",
+     *                                  "name"              => "Gabardine A-line skirt",
+     *                                  "category"          => "Womens > Skirts",
+     *                                  "currency"          => "GBP",
+     *                                  "unit_sale_price"   => 98),
+     *               "events" => array((object)["category" => "conversion_funnel", "action" => "browse" ])
+     *               );
+     *
+     * @return bool
+     */
     public function postEvent($data){
          $resp = $this->api_request('POST', $uri = '/event', $data );
          if($resp == 0){
@@ -25,6 +42,21 @@ class NtokloApi extends Curl{
          }
     }
 
+
+    /**
+     * This function will allow to post a decode json object into the nToklo api
+     * @uses array | decode json object
+     * Example:
+     * $data = array("version" => "1.2",
+     *               "product" => array("id"                => "10201",
+     *                                  "name"              => "Gabardine A-line skirt",
+     *                                  "category"          => "Womens > Skirts",
+     *                                  "currency"          => "GBP",
+     *                                  "unit_sale_price"   => 98
+     *                                  )
+     *                );
+     * @return bool
+     */
     public function postProduct($data){
         $resp = $this->api_request('POST', $uri = '/products', $data );
         if($resp == 0){
@@ -34,6 +66,20 @@ class NtokloApi extends Curl{
         }
     }
 
+
+    /**
+     * This function will fetch the recommendations from nToklo api
+     * @param string $userId optional. Uniquely identifies the user for which the recommendations are intended.
+     *        The userId can be any value of string type. Examples: dan@gmail.com, 11245901, user_123
+     * @param string $productId optional. The product for which to base recommendations from. The productId can be any string value. Example: 10201,prod8513
+     * @param string $scope optional. A product attribute for which to scope recommendations.
+     *        For example scope=category will consider the product category when returning recommendations. Supports: category, manufacturer, vendor, action.
+     * @param string $value optional. The value for the recommendation scope.
+     *        For example scope=category&value=shoes will consider the shoe category when returning recommendations.
+     *        The value parameter can be any string value. Example: shoes, category12, nike, shoes.com
+     *
+     * @return Json
+     */
     public function recommendations($userId = null, $productId = null, $scope = null, $value = null){
 
         $param = array('userId'     => $userId,
@@ -51,6 +97,21 @@ class NtokloApi extends Curl{
         }
     }
 
+    /**
+     * This function will fetch the charts from nToklo api
+     * @param string $timestamp Optional. The date for which to retrieve a chart. The date should be an epoch timestamp in milliseconds, truncated to midnight Example: 1364169600000
+     * @param string $scope Optional. A product attribute for which to scope recommendations.
+     *        For example scope=category will consider the product category when returning recommendations. Supports: category, manufacturer, vendor, action.
+     * @param string $value Optional. The value for the recommendation scope.
+     *        For example scope=category&value=shoes will consider the shoe category when returning recommendations.
+     *        The value parameter can be any string value. Example: shoes, category12, nike, shoes.com
+     * @param string $action Optional Filters the requested chart by conversion_funnel actions. If it’s not specified then the chart returned is all actions, equivalent to action=all.
+     * @param string $tw Optional. The time window for which the charts are requested. If not specified then the chart returns daily chart, equivalent to tw=DAILY. Supports: DAILY, WEEKLY.
+     * @param srting $maxItems Optional. The max number of items in the charts. Default is 10. Valid range is 1-100.
+     *
+     * @return Json object
+     */
+
     public function chart($timestamp = null, $scope = null, $value = null, $action = null, $tw = null, $maxItems = null){
         $param = array('date' => $timestamp,
                        'scope' => $scope,
@@ -62,9 +123,21 @@ class NtokloApi extends Curl{
 
         $param = $this->checkForNull($param);
         $resp = $this->api_request('GET', $uri = '/chart?' . http_build_query($param));
-        return $this->response;
+        if($resp == 0){
+            return $this->response;
+        }else{
+            throw new Exception($resp . " There is problem while trying to fetch charts");
+        }
     }
 
+
+    /**
+     * This function will post an product id to nToklo api to blacklist
+     * @param string $productId The unique identifier for the product which will added/removed from the blacklist.
+     *        The productId can be any string value. In order to add/remove products in batches the productId can be specified multiple times.
+     *
+     * @return bool
+     */
     public function addBlacklist($productId = null){
         $param = array('productId' => $productId);
         $resp = $this->api_request('POST', $uri = '/product/blacklist?' . http_build_query($param));
@@ -75,6 +148,13 @@ class NtokloApi extends Curl{
         }
     }
 
+    /**
+     * This function will post an product id to nToklo api remove prodct from blacklist
+     * @param string $productId The unique identifier for the product which will added/removed from the blacklist.
+     *        The productId can be any string value. In order to add/remove products in batches the productId can be specified multiple times.
+     *
+     * @return bool
+     */
     public function removeBlacklist($productId = null){
         $param = array('productId' => $productId);
         $resp = $this->api_request('DELETE', $uri = '/product/blacklist?' . http_build_query($param));
@@ -85,6 +165,13 @@ class NtokloApi extends Curl{
         }
     }
 
+    /**
+     * This function will fetch all the blacklisted products
+     * @param string $productId The unique identifier for the product which will added/removed from the blacklist.
+     *        The productId can be any string value. In order to add/remove products in batches the productId can be specified multiple times.
+     *
+     * @return json object
+     */
     public function fetchBlacklist(){
         $resp = $this->api_request('GET', $uri = '/products/blacklist');
 
@@ -97,7 +184,9 @@ class NtokloApi extends Curl{
 
 
     /**
+     * This function will remove all the key from an array with a null value
      *
+     * @return array
      */
     private function checkForNull($param){
         foreach($param as $key=>$value){
@@ -107,6 +196,16 @@ class NtokloApi extends Curl{
         return $param;
     }
 
+
+   /**
+     * This class will take care of authentication and exceptions of the API, retuning the required codes to the functions that use it.
+     *
+     * @param string $method http method POST GET DELETE
+     * @param string $uri
+     * @param array $data post the json object to the nToklo api
+     *
+     * @return int status code
+     */
     protected function api_request($method , $uri, $data = null){
         $url = $this->endpoint . $uri;
         $set_header= 'Authorization: NTOKLO ' . $this->key;
@@ -124,10 +223,19 @@ class NtokloApi extends Curl{
         if($resp == 401){
             throw new Exception('Please check your key and secret');
         }
-
         return $resp;
     }
 
+
+    /**
+     * Get the required signature to sign the request.
+     * Please check http://docs.ntoklo.com/start.php/authentication for more information.
+     *
+     * @param string $http_method http method POST, GET, DELETE
+     * @param string $uri
+     *
+     * @return string containing a signed token
+     */
     protected function signature($http_method, $uri){
         if(!empty($this->key) && !empty($this->secret)){
             $hmac_key   = $this->key .  "&" . $this->secret;
