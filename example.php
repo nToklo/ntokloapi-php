@@ -37,7 +37,7 @@ echo $api->postProduct($_data_product);
 //echo $api->addBlacklist('10201');
 //echo $api->removeBlacklist('10201');
 //echo $api->fetchBlacklist();
-//echo Ntokloapi\test();
+
 
 ?>
 

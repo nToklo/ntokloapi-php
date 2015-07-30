@@ -195,6 +195,37 @@ class NtokloApi extends Curl{
         return $param;
     }
 
+    /**
+     * This function will check for the http status code given back from the api
+     * @param int $status status code return back from the api
+     *
+     * @return int
+     */
+    private function errorStatusCode($status){
+        switch ($status) {
+            case 400:
+                throw new \Exception('400 Bad request');
+                break;
+            case 401:
+                throw new \Exception('401 Unauthorized');
+                break;
+            case 403:
+                throw new \Exception('403 Forbidden');
+                break;
+            case 404:
+                throw new \Exception('404 Not Found');
+                break;
+            case 405:
+                throw new \Exception('405 Method Not Allowed');
+                break;
+            case 500:
+                throw new \Exception('500 Internal Server Error');
+                break;
+            default:
+                return $status;
+        }
+    }
+
 
    /**
      * This class will take care of authentication and exceptions of the API, retuning the required codes to the functions that use it.
@@ -221,28 +252,8 @@ class NtokloApi extends Curl{
             $resp = parent::delete($url);
         }
 
-        switch ($resp) {
-            case 400:
-                throw new \Exception('400 Bad request');
-                break;
-            case 401:
-                throw new \Exception('401 Unauthorized');
-                break;
-            case 403:
-                throw new \Exception('403 Forbidden');
-                break;
-            case 404:
-                throw new \Exception('404 Not Found');
-                break;
-            case 405:
-                throw new \Exception('405 Method Not Allowed');
-                break;
-            case 500:
-                throw new \Exception('500 Internal Server Error');
-                break;
-            default:
-                return $resp;
-        }
+        $status = $this->errorStatusCode($resp);
+        return $status;
     }
 
     /**
