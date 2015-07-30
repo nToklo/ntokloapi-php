@@ -21,6 +21,8 @@ This is a list of the functionality that is available on this API connector:
 
 ## Installations
 
+by composer
+
 ## Authors
 
 - Fu Hoang <fu.hoang@ntoklo.com>
