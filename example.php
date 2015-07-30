@@ -1,10 +1,22 @@
 <?php
 
+use Ntokloapi\classes\NtokloApi as NtokloApi;
+
 //require the nToklo api
-require '/path/to/Ntokloapi/NtokloApi.php';
+//require('./src/Ntokloapi/NtokloApi.php');
+require_once __DIR__ . '/vendor/autoload.php';
+$data = array('version' => '1.2',
+              'user' => array('user_id' => '112'),
+              'product' => array("id" => "10201",
+                                 "name" => "Gabardine A-line skirt",
+                                 "category" => "Womens > Skirts",
+                                 "currency" => "GBP",
+                                 "unit_sale_price"=> 98),
+              'events' => array((object)['category' => 'conversion_funnel', 'action' => 'browse' ])
+              );
 
 // create a ntoklo pai instance and pass the key and secret for more infomation got to: http://docs.ntoklo.com/start.php
-$api = new Ntokloapi\NtokloApi( 'key', 'secret' );
+$api = new NtokloApi( 'YzBlYmIzYWMtZDg0Zi00MTc0LWEyZTgtMzNiMGU3ZmU1MTA3', 'OGNmZDkwZGMtNTdlMi00ZWNmLWFjNzAtMmE3MTU4YjQ2MzM2' );
 
 
 /**
@@ -13,7 +25,7 @@ $api = new Ntokloapi\NtokloApi( 'key', 'secret' );
  * @param pass an json decode object as an args
  * @return bool
  */
-$api->postEvent($data);
+echo $api->postEvent($data);
 
 
 /**
@@ -22,7 +34,7 @@ $api->postEvent($data);
  * @param pass an json decode object as an args
  * @return bool
  */
-$api->postProduct($_data_product);
+//$api->postProduct($_data_product);
 
 
 /**
@@ -34,7 +46,7 @@ $api->postProduct($_data_product);
  * @param string $value optional.
  * @return Json
  */
-$api->recommendations($userId, $productId, $scope, $value);
+//$api->recommendations($userId, $productId, $scope, $value);
 
 
 /**
@@ -48,7 +60,7 @@ $api->recommendations($userId, $productId, $scope, $value);
  * @param srting $maxItems Optional.
  * @return Json object
  */
-$api->chart($timestamp, $scope, $value, $action, $tw, $maxItems);
+//$api->chart($timestamp, $scope, $value, $action, $tw, $maxItems);
 
 
  /**
@@ -57,7 +69,7 @@ $api->chart($timestamp, $scope, $value, $action, $tw, $maxItems);
   * @param string $productId
   * @return bool
   */
-$api->addBlacklist($product);
+//$api->addBlacklist($product);
 
 
  /**
@@ -66,7 +78,7 @@ $api->addBlacklist($product);
   * @param string $productId
   * @return bool
   */
-$api->removeBlacklist($productId);
+//$api->removeBlacklist($productId);
 
 
  /**
@@ -75,6 +87,6 @@ $api->removeBlacklist($productId);
   * @param string $productId
   * @return bool
   */
-$api->fetchBlacklist();
+//$api->fetchBlacklist();
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace Ntokloapi;
+namespace src\Ntokloapi;
 
 class Curl{
 

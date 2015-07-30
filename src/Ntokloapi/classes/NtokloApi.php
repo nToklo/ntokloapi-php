@@ -1,5 +1,6 @@
 <?php
-namespace Ntokloapi;
+namespace src\Ntokloapi;
+
 require_once('Curl.php');
 
 
