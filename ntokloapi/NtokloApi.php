@@ -1,8 +1,7 @@
 <?php
+namespace Ntokloapi;
+require_once('Curl.php');
 
-function __autoload($class){
-    require_once($class . '.php');
-}
 
 class NtokloApi extends Curl{
 
@@ -210,8 +209,10 @@ class NtokloApi extends Curl{
         $url = $this->endpoint . $uri;
         $set_header= 'Authorization: NTOKLO ' . $this->key;
         $h = $set_header . ':' . $this->signature($method, $uri);
+
         $setContent = 'Content-Type:application/json';
         parent::setHeader(array($h, $setContent));
+
         if($method == 'POST'){
             $resp = parent::post($url, json_encode($data));
         }elseif($method == 'GET'){
@@ -220,12 +221,29 @@ class NtokloApi extends Curl{
             $resp = parent::delete($url);
         }
 
-        if($resp == 401){
-            throw new Exception('Please check your key and secret');
+        switch ($resp) {
+            case 400:
+                throw new \Exception('400 Bad request');
+                break;
+            case 401:
+                throw new \Exception('401 Unauthorized');
+                break;
+            case 403:
+                throw new \Exception('403 Forbidden');
+                break;
+            case 404:
+                throw new \Exception('404 Not Found');
+                break;
+            case 405:
+                throw new \Exception('405 Method Not Allowed');
+                break;
+            case 500:
+                throw new \Exception('500 Internal Server Error');
+                break;
+            default:
+                return $resp;
         }
-        return $resp;
     }
-
 
     /**
      * Get the required signature to sign the request.

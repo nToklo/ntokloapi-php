@@ -29,14 +29,15 @@ $_data_product = array('version' => '1.2',
 
 
 require('ntokloapi/NtokloApi.php');
-$api = new NtokloApi('MWFlMDg1YjYtYjU4Ni00NTE4LTg2MDEtMjRmODgyMDEzYzIy', 'Mjc5YjQ2MTgtMGQ2Yi00Y2ViLTg0ZjUtN2YxOTJjZjg0OGZk' );
+$api = new Ntokloapi\NtokloApi('YzBlYmIzYWMtZDg0Zi00MTc0LWEyZTgtMzNiMGU3ZmU1MTA3', 'OGNmZDkwZGMtNTdlMi00ZWNmLWFjNzAtMmE3MTU4YjQ2MzM2' );
 echo $api->postEvent($data);
-//echo $api->postProduct($_data_product);
+echo $api->postProduct($_data_product);
 //echo $api->recommendations('1', '10201', null, null);
 //echo $api->chart(null, null, null, null, 'DAILY');
 //echo $api->addBlacklist('10201');
 //echo $api->removeBlacklist('10201');
 //echo $api->fetchBlacklist();
+//echo Ntokloapi\test();
 
 ?>
 
