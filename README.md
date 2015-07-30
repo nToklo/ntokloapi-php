@@ -19,6 +19,7 @@ This is a list of the functionality that is available on this API connector:
 * removeBlacklist($productId);
 * fetchBlacklist();
 
+## Installations
 
 ## Authors
 
