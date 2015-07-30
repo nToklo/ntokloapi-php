@@ -24,7 +24,7 @@ This is a list of the functionality that is available on this API connector:
 Use new Ntokloapi\NtokloApi('key', 'secret'); to create and initialize the nToklo
 API, which can make request by accessing the methods and passing the required parameters.
 
-<?php
+
 //require the nToklo api
 require '/path/to/Ntokloapi/NtokloApi.php';
 
@@ -102,7 +102,6 @@ $api->removeBlacklist($productId);
   */
 $api->fetchBlacklist();
 
-?>
 
 ## Authors
 
