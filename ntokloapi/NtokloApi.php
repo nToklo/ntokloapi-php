@@ -110,7 +110,6 @@ class NtokloApi extends Curl{
      *
      * @return Json object
      */
-
     public function chart($timestamp = null, $scope = null, $value = null, $action = null, $tw = null, $maxItems = null){
         $param = array('date' => $timestamp,
                        'scope' => $scope,
@@ -166,9 +165,6 @@ class NtokloApi extends Curl{
 
     /**
      * This function will fetch all the blacklisted products
-     * @param string $productId The unique identifier for the product which will added/removed from the blacklist.
-     *        The productId can be any string value. In order to add/remove products in batches the productId can be specified multiple times.
-     *
      * @return json object
      */
     public function fetchBlacklist(){
