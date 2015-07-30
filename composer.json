@@ -1,5 +1,5 @@
 {
-    "name": "nToklo/ntokloapi-php",
+    "name": "ntoklo/ntokloapi-php",
     "type": "library",
     "keywords": ["ntoklo", "recommendations", "connector", "api"],
     "description": "PHP connector for ntoklo recommendations engine",
