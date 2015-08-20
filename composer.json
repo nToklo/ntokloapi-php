@@ -1,26 +1,11 @@
 {
-    "name": "ntoklo/ntokloapi-php",
-    "type": "library",
-    "keywords": ["ntoklo", "recommendations", "connector", "api"],
-    "description": "PHP connector for ntoklo recommendations engine",
-    "homepage": "https://github.com/nToklo/ntokloapi-php",
-    "license": "Apache-2.0",
-    "authors":[
-        {
-            "name": "Fu Hoang",
-            "email": "fu.hoang@ntoklo.com",
-            "homepage":"http://www.ntoklo.com/",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.5.9"
+    "require-dev": {
+        "phpunit/phpunit": "4.7.*"
     },
 
     "autoload": {
-        "psr-4":{
-            "Ntokloapi\\": "src/Ntokloapi"
-        }
+        "classmap": [
+            "app/libraries"
+        ]
     }
-
 }

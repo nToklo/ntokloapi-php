@@ -1,10 +1,11 @@
 <?php
 
-use Ntokloapi\classes\NtokloApi as NtokloApi;
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 
-//require the nToklo api
-//require('./src/Ntokloapi/NtokloApi.php');
-require_once __DIR__ . '/vendor/autoload.php';
+
+
 $data = array('version' => '1.2',
               'user' => array('user_id' => '112'),
               'product' => array("id" => "10201",
@@ -15,78 +16,49 @@ $data = array('version' => '1.2',
               'events' => array((object)['category' => 'conversion_funnel', 'action' => 'browse' ])
               );
 
-// create a ntoklo pai instance and pass the key and secret for more infomation got to: http://docs.ntoklo.com/start.php
-$api = new NtokloApi( 'YzBlYmIzYWMtZDg0Zi00MTc0LWEyZTgtMzNiMGU3ZmU1MTA3', 'OGNmZDkwZGMtNTdlMi00ZWNmLWFjNzAtMmE3MTU4YjQ2MzM2' );
+$data_product = array('version' => '1.2',
+                      'user' => array('user_id' => '112'),
+                      'product' => array("id" => "886",
+                                     "name" => "KOTORI BAG",
+                                     "category" => "all",
+                                     "currency" => "GBP",
+                                     "unit_sale_price" => 30),
+                      'events' => array((object)['category' => 'conversion_funnel', 'action' => 'preview' ])
+                      );
+
+//print_r(json_encode($data));
+//print_r(json_encode($_data_product));
 
 
-/**
- * post Event to the nToklo api,
- * For more info go to: http://docs.ntoklo.com/start.php/api_reference:events
- * @param pass an json decode object as an args
- * @return bool
- */
-echo $api->postEvent($data);
+require 'app/NtokloApi.php';
+$api = new NtokloApi('OTNmMjlhZmUtZmQ4Yy00MjQ4LThjODAtNzBjMjJlODRjYjVh', 'YzM0OTlhNDAtZGMxZS00Yzg4LWEyZjAtOWVlMmM5NGIyZjM3');
+//echo $api->postEvent($data);
+echo $api->postProduct($data_product);
+//echo $api->getProduct('192');
+//echo $api->recommendations($userId = '112', $productId = 'productId', $scope = null, $value = null);
+//echo $api->chart($timestamp = null, $scope = null, $value = null, $action = null, $tw = 'DAILY', $maxItems = null);
+//echo $api->addBlacklist("192");
+//echo $api->removeBlacklist("168");
+//echo $api->fetchBlacklist();
 
-
-/**
- * post products to the nToklo api,
- * For more info go to: http://docs.ntoklo.com/start.php/api_reference:products
- * @param pass an json decode object as an args
- * @return bool
- */
-//$api->postProduct($_data_product);
-
-
-/**
- * fetch the recommendations from nToklo api
- * For more info go to: http://docs.ntoklo.com/start.php/api_reference:recommendations
- * @param string $userId optional.
- * @param string $productId optional.
- * @param string $scope optional.
- * @param string $value optional.
- * @return Json
- */
-//$api->recommendations($userId, $productId, $scope, $value);
-
-
-/**
- *This function will fetch the charts from nToklo api
- * For more info go to: http://docs.ntoklo.com/start.php/api_reference:charts
- * @param string $timestamp Optional.
- * @param string $scope Optional.
- * @param string $value Optional.
- * @param string $action Optional
- * @param string $tw Optional.
- * @param srting $maxItems Optional.
- * @return Json object
- */
-//$api->chart($timestamp, $scope, $value, $action, $tw, $maxItems);
-
-
- /**
-  * Post a product id to nToklo api to blacklist
-  * For more info go to: http://docs.ntoklo.com/start.php/api_reference:blacklist
-  * @param string $productId
-  * @return bool
-  */
-//$api->addBlacklist($product);
-
-
- /**
-  * Remove a product id from blacklist
-  * For more info go to: http://docs.ntoklo.com/start.php/api_reference:blacklist
-  * @param string $productId
-  * @return bool
-  */
-//$api->removeBlacklist($productId);
-
-
- /**
-  * Fetch all product from blacklist
-  * For more info go to: http://docs.ntoklo.com/start.php/api_reference:blacklist
-  * @param string $productId
-  * @return bool
-  */
-//$api->fetchBlacklist();
 
 ?>
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Api Test</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+    <p>Hello world!</p>
+
+</body>
+</html>
