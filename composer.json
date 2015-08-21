@@ -11,9 +11,7 @@
             "email": "fu.hoang@ntoklo.com",
             "homepage": "http://www.ntoklo.com/",
             "role": "Developer"
-
-
-        },
+        }
     ],
 
     "require-dev": {
