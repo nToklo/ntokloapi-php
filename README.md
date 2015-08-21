@@ -6,11 +6,13 @@ This library will allow you to connect to the nToklo API and create your own app
 
 ## Installation
 
-#Composer
+###Composer
 
 ``` bash
 $ composer require ntoklo/ntokloapi-php
 ```
+
+
 
 ## Usage
 
