@@ -10,8 +10,15 @@ This library will allow you to connect to the nToklo API and create your own app
 
 ``` bash
 $ composer require ntoklo/ntokloapi-php
+
 ```
 
+``` php
+require "vendor/autoload.php";
+
+$api = $api = new NtokloApi('nToklo API key', 'nToklo API secret');
+
+```
 
 
 ## Usage
