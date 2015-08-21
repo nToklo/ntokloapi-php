@@ -13,6 +13,11 @@ $ composer require ntoklo/ntokloapi-php
 
 ```
 
+
+### Usage
+
+Include the require path to autoload.php and instantiate a new NtokloApi class and pass through the nToklo api key and secret.
+
 ``` php
 require "vendor/autoload.php";
 
@@ -21,7 +26,7 @@ $api = $api = new NtokloApi('nToklo API key', 'nToklo API secret');
 ```
 
 
-## Usage
+
 
 ## Features
 
