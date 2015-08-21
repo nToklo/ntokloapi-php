@@ -6,6 +6,8 @@ This library will allow you to connect to the nToklo API and create your own app
 
 ## Installation
 
+#Composer
+
 ## Features
 
 This is a list of the functionality that is available on this API connector:
