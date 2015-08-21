@@ -25,7 +25,52 @@ $api = $api = new NtokloApi('nToklo API key', 'nToklo API secret');
 
 ```
 
+### Examples
 
+Events API allows customers to send nToklo user activity.
+[click here for more info on Events](http://docs.ntoklo.com/start.php/api_reference:events)
+
+``` php
+$api->postEvent( $array );
+
+```
+
+
+
+``` php
+$api->postProduct( $array );
+
+```
+
+``` php
+$api->getProduct( $productId );
+
+```
+
+``` php
+$api->recommendations( $userId, $productId, $scope, $value );
+
+```
+
+``` php
+$api->chart( $timestamp, $scope, $value, $action, $tw, $maxItems );
+
+```
+
+``` php
+$api->addBlacklist($productId);
+
+```
+
+``` php
+$api->removeBlacklist($productId);
+
+```
+
+```php
+$api->fetchBlacklist();
+
+```
 
 
 ## Features
