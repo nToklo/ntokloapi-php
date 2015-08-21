@@ -28,44 +28,62 @@ $api = $api = new NtokloApi('nToklo API key', 'nToklo API secret');
 ### Examples
 
 Events API allows customers to send nToklo user activity.
-[click here for more info on Events](http://docs.ntoklo.com/start.php/api_reference:events)
+[Click here for more info on Events](http://docs.ntoklo.com/start.php/api_reference:events)
 
 ``` php
 $api->postEvent( $array );
 
 ```
 
-
+Add a new product to the Ntoklo API
+[Click here for more info on posting product](http://docs.ntoklo.com/start.php/api_reference:products)
 
 ``` php
 $api->postProduct( $array );
 
 ```
 
+Get a product by ID
+[Click here for more info on getting product by Id](http://docs.ntoklo.com/start.php/api_reference:products)
+
 ``` php
 $api->getProduct( $productId );
 
 ```
+
+Recommendations API allows customers to retrieve recommendations based on user history and product attributes
+[Click here for more info on recommendations](http://docs.ntoklo.com/start.php/api_reference:recommendations)
 
 ``` php
 $api->recommendations( $userId, $productId, $scope, $value );
 
 ```
 
+Charts API allows customers to retrieve a list of popular products. Charts represents a rolling time window (daily or weekly) and can be scoped by product attributes and filtered by action.
+[Click here for more info on charts](http://docs.ntoklo.com/start.php/api_reference:charts)
+
 ``` php
 $api->chart( $timestamp, $scope, $value, $action, $tw, $maxItems );
 
 ```
 
+Add to blacklist
+[Click here for more info on adding product to blacklist](http://docs.ntoklo.com/start.php/api_reference:blacklist)
+
 ``` php
 $api->addBlacklist($productId);
 
 ```
+Remove from blacklist
+[Click here for more info on removing product from blacklist](http://docs.ntoklo.com/start.php/api_reference:blacklist)
 
 ``` php
 $api->removeBlacklist($productId);
 
 ```
+
+Gettin all blacklisted product
+[Click here for more info on getting blacklisted products](http://docs.ntoklo.com/start.php/api_reference:blacklist)
 
 ```php
 $api->fetchBlacklist();
