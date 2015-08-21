@@ -37,7 +37,7 @@ $api->postEvent( $array );
 
 ```
 
-### Add Products
+#### Add Products
 
 Add a new product to the Ntoklo API
 [Click here for more info on posting product](http://docs.ntoklo.com/start.php/api_reference:products)
@@ -57,6 +57,8 @@ $api->getProduct( $productId );
 
 ```
 
+#### Recommendations
+
 Recommendations API allows customers to retrieve recommendations based on user history and product attributes
 [Click here for more info on recommendations](http://docs.ntoklo.com/start.php/api_reference:recommendations)
 
@@ -64,6 +66,9 @@ Recommendations API allows customers to retrieve recommendations based on user h
 $api->recommendations( $userId, $productId, $scope, $value );
 
 ```
+
+
+#### Charts
 
 Charts API allows customers to retrieve a list of popular products. Charts represents a rolling time window (daily or weekly) and can be scoped by product attributes and filtered by action.
 [Click here for more info on charts](http://docs.ntoklo.com/start.php/api_reference:charts)
@@ -73,6 +78,9 @@ $api->chart( $timestamp, $scope, $value, $action, $tw, $maxItems );
 
 ```
 
+
+#### Add to blacklist
+
 Add to blacklist
 [Click here for more info on adding product to blacklist](http://docs.ntoklo.com/start.php/api_reference:blacklist)
 
@@ -80,6 +88,9 @@ Add to blacklist
 $api->addBlacklist($productId);
 
 ```
+
+#### Remove from blacklist
+
 Remove from blacklist
 [Click here for more info on removing product from blacklist](http://docs.ntoklo.com/start.php/api_reference:blacklist)
 
@@ -87,6 +98,9 @@ Remove from blacklist
 $api->removeBlacklist($productId);
 
 ```
+
+
+#### Get blacklist product
 
 Gettin all blacklisted product
 [Click here for more info on getting blacklisted products](http://docs.ntoklo.com/start.php/api_reference:blacklist)
