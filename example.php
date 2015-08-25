@@ -36,7 +36,7 @@ $api = new NtokloApi('OTNmMjlhZmUtZmQ4Yy00MjQ4LThjODAtNzBjMjJlODRjYjVh', 'YzM0OT
 //echo $api->postEvent($data);
 //echo $api->postProduct($data_product);
 //echo $api->getProduct('192');
-echo $api->recommendations($userId = '112', $productId = 'productId', $scope = null, $value = null);
+echo $api->recommendations($userId = null, $productId = '217', $scope = null, $value = null);
 //echo $api->chart($timestamp = null, $scope = null, $value = null, $action = null, $tw = 'DAILY', $maxItems = null);
 //echo $api->addBlacklist("192");
 //echo $api->removeBlacklist("168");

@@ -21,7 +21,7 @@
 
     "require": {
         "ntoklo/ntokloapi-php": "1.0.*"
-    }
+    },
 
     "require-dev": {
         "phpunit/phpunit": "4.7.*"

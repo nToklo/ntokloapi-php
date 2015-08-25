@@ -51,68 +51,68 @@ class Curl{
         $this->setopt(CURLOPT_RETURNTRANSFER, TRUE);
     }
 
-    function get($url){
+    protected function get($url){
         //echo $url;
         $this->setOpt(CURLOPT_URL, $url);
         $this->setOpt(CURLOPT_HTTPGET, TRUE);
         return $this->_exec();
     }
 
-    function post($url, $data = array() ){
+    protected function post($url, $data = array() ){
         $this->setOpt(CURLOPT_URL, $url);
         $this->setOpt(CURLOPT_POST, TRUE);
         $this->setOpt(CURLOPT_POSTFIELDS, $this->_postfields($data));
         return $this->_exec();
     }
 
-    function put($url, $data = array() ){
+    protected function put($url, $data = array() ){
         $this->setOpt(CURLOPT_URL, $url . '?' . http_build_query($data));
         $this->setOpt(CURLOPT_CUSTOMREQUEST, 'PUT');
         $this->_exec();
     }
 
 
-    function delete($url){
+    protected function delete($url){
         $this->setOpt(CURLOPT_URL, $url);
         $this->setOpt(CURLOPT_CUSTOMREQUEST, 'DELETE');
         $this->_exec();
     }
 
-    function setBasicAuthentication($username, $password){
+    protected function setBasicAuthentication($username, $password){
         $this->setOpt(CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         $this->setOpt(CURLOPT_USERPWD, $username . ':' . $password);
     }
 
-    function setHeader($header){
+    protected function setHeader($header){
 
         $this->setOpt(CURLOPT_HTTPHEADER, array_values($header));
     }
 
-    function setUserAgent($user_agent){
+    protected function setUserAgent($user_agent){
         $this->setOpt(CURLOPT_USERAGENT, $user_agent);
     }
 
 
-    function setOpt($option, $value){
+    protected function setOpt($option, $value){
         return curl_setopt($this->curl, $option, $value);
     }
 
-    function verbose($on = TRUE){
+    protected function verbose($on = TRUE){
         $this->setOpt(CURLOPT_VERBOSE, $on);
     }
 
-    function close(){
+    protected function close(){
         curl_close($this->curl);
     }
 
-    function _postfields($data){
+    protected function _postfields($data){
         if(is_array($data)){
             $data = json_encode($data);
         }
         return $data;
     }
 
-    function _exec(){
+    protected function _exec(){
         $this->response = curl_exec($this->curl);
         //echo $this->response;
 

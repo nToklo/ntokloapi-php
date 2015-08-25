@@ -35,7 +35,8 @@ class NtokloApiTest extends PHPUnit_Framework_TestCase {
                                             "currency"        => "GBP",
                                             "unit_sale_price" => 30)
                             );
-      $this->assertEquals(true, $this->api->postProduct($data_product));
+        $response = $this->api->postProduct($data_product);
+        $this->assertEquals(true, $response);
     }
 
     public function testGetProduct(){
