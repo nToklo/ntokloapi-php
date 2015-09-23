@@ -21,7 +21,7 @@ Include the require path to autoload.php and instantiate a new NtokloApi class a
 ``` php
 require "vendor/autoload.php";
 
-$api = $api = new NtokloApi('nToklo API key', 'nToklo API secret');
+$api = new NtokloApi('nToklo API key', 'nToklo API secret');
 
 ```
 

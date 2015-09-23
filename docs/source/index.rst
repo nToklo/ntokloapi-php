@@ -32,7 +32,20 @@ so you can get an API key and API secret.
 To get your API key and API secret you must follow th steps below:
 
 Step 1 
------- 
+------
+`Register with nToklo <https://console.ntoklo.com/register/>`
+
+Step 2
+------
+Create an application on the `nToklo console <https://console.ntoklo.com/>`. An application represent your store on nToklo platform.
+
+Step 3
+------
+Get your nToklo API key and secret and put into the function.
+::
+
+	$api = new NtokloApi($key = '1112233asdZmUtZmQ4Yy00MjQ4LThjODAtNzBjMjJlODRjYjVh', $secret = 'OTNmMjlhZmUtZmQ4Yy00MjQ4LThjODAtNzBjMjJlOdadasdsa');
+
 
 
 Contents:
