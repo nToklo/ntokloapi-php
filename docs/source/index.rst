@@ -33,11 +33,11 @@ To get your API key and API secret you must follow th steps below:
 
 Step 1 
 ------
-`Register with nToklo <https://console.ntoklo.com/register/>`
+`Register with nToklo <https://console.ntoklo.com/register/>`_
 
 Step 2
 ------
-Create an application on the `nToklo console <https://console.ntoklo.com/>`. An application represent your store on nToklo platform.
+Create an application on the `nToklo console <https://console.ntoklo.com/>`_. An application represent your store on nToklo platform.
 
 Step 3
 ------
