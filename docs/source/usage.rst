@@ -15,6 +15,10 @@ The nToklo recommendation engine uses UV(Universal Variable) objects to create t
 UV is a type of JSON object that has a specfic set of keys to manage ecommerce entries. You can check
 the specification `here <http://docs.qubitproducts.com/uv//>`_
 
+.. Note::
+   The ntokloapi with automatically encode the Univerisal Variable into JSON if is in PHP format.
+   If the UV is in JSON you will need to use the PHP json_decoded() into PHP posting into the API.
+
 For example Universal Variable in JSON:
 ::
 	uv = {
