@@ -16,6 +16,7 @@ UV is a type of JSON object that has a specfic set of keys to manage ecommerce e
 the specification `here <http://docs.qubitproducts.com/uv//>`_
 
 .. note::
+
    The ntokloapi with automatically encode the Univerisal Variable into JSON if is in PHP format.
    If the UV is in JSON you will need to use the PHP json_decoded() into PHP posting into the API.
 
