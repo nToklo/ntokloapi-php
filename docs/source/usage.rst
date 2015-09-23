@@ -20,6 +20,21 @@ For example Universal Variable in JSON:
 	uv = {
 		"version": 1.2,
 		"user": {
-
+			"user_id": "nicole12@example.com",
+			"name": "Nicole Watts",
+			"username": "nicoleuser123"
+		},
+		"events": {
+			"category": "conversion_funnel",
+			"action": "preview"
+		},
+		"product":{
+			"id": "1234",
+			"url": "http://www.fashionbay.com/women/shoes/french_sole_flats_1021.html",
+			"name": "French Sole: Classic Ballet",
+			"unit_price": 99,
+			"unit_sale_price": 69,
+			"description": "This is beautifully soft, unstructured ballet flat is ..."
+			"category": "shoes"  
 		}
 	}
