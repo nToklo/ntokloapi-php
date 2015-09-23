@@ -18,16 +18,18 @@ the specification `here <http://docs.qubitproducts.com/uv//>`_
 For example Universal Variable in JSON:
 ::
 	uv = {
-		"version": 1.2,
+		"version": 1.2, # If his doesn's exist, the connector will assume latest 
 		"user": {
 			"user_id": "nicole12@example.com",
 			"name": "Nicole Watts",
 			"username": "nicoleuser123"
 		},
-		"events": {
-			"category": "conversion_funnel",
-			"action": "preview"
-		},
+		"events": [
+			{
+				"category": "conversion_funnel",
+				"action": "preview"
+			}
+		],
 		"product":{
 			"id": "1234",
 			"url": "http://www.fashionbay.com/women/shoes/french_sole_flats_1021.html",
@@ -38,3 +40,21 @@ For example Universal Variable in JSON:
 			"category": "shoes"  
 		}
 	}
+
+
+For example Universal Variable in PHP:
+::
+	$uv = array('version' => '1.2',
+              'user' => array('user_id' => '112'),
+              'product' => array(
+              		"id" => "10201",
+                    "name" => "Gabardine A-line skirt",
+                    "category" => "Womens > Skirts",
+                    "currency" => "GBP",
+                    "unit_sale_price"=> 98),
+              'events' => array((object)['category' => 'conversion_funnel', 'action' => 'browse' ])
+          );
+
+
+Products
+--------
