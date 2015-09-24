@@ -31,7 +31,7 @@ so you can get an API key and API secret.
 
 To get your API key and API secret you must follow th steps below:
 
-Step 1 
+Step 1
 ------
 `Register with nToklo <https://console.ntoklo.com/register/>`_
 
@@ -53,7 +53,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-
+   installation
+   usage
+   reference
 
 Indices and tables
 ==================

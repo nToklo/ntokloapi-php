@@ -16,6 +16,8 @@ import sys
 import os
 import shlex
 
+sys.path.insert(0, os.path.abspath('../'))
+print sys.path
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -32,6 +34,9 @@ import shlex
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
+    'sphinxcontrib.phpdomain',
+    'sphinxcontrib_phpautodoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -111,7 +116,7 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
