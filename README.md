@@ -16,8 +16,7 @@ $ composer require ntoklo/ntokloapi-php
 
 ### Usage
 
-
-You can see how to see this library on the [documentation](http://ntokloapi-php.readthedocs.org/en/latest/)
+You can see how to use this library on the [documentation](http://ntokloapi-php.readthedocs.org/en/latest/)
 
 Include the require path to autoload.php and instantiate a new NtokloApi class and pass through the nToklo api key and secret.
 
