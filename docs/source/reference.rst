@@ -12,6 +12,7 @@ NtokloApi class
 
 NtokloApiBase
 -------------
+
 .. phpautoclass:: NtokloApiBase
    :filename: ../../app/libraries/NtokloApiBase.php
    :members:
@@ -19,6 +20,7 @@ NtokloApiBase
 
 Curl
 ----
+
 .. phpautoclass:: Curl
    :filename: ../../app/libraries/Curl.php
    :members:
