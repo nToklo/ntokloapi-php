@@ -1,6 +1,6 @@
 # nToklo API PHP connector
 
-Version: 1.0.3 stable
+Version: 0.1 beta
 
 This library will allow you to connect to the nToklo API and create your own applications, get tokens and the results. Full documentation of the API can be found [in the nToklo dev website](https://docs.ntoklo.com)
 
@@ -8,12 +8,14 @@ This library will allow you to connect to the nToklo API and create your own app
 
 ###Composer
 
-``` bash1.0.3cstableser require ntoklo/ntokloapi-php
+``` bash
+$ composer require ntoklo/ntokloapi-php
 
 ```
 
 
 ### Usage
+
 
 You can see how to use this library on the [documentation](http://ntokloapi-php.readthedocs.org/en/latest/)
 
