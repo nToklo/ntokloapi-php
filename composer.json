@@ -1,7 +1,7 @@
 {
     "name": "ntoklo/ntokloapi-php",
     "type": "library",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "API connector for ntoklo recommendations engine",
     "keywords": ["API","connector", "ntoklo", "recommendations"],
     "homepage": "https://github.com/ntoklo/ntokloapi-php",
@@ -20,7 +20,7 @@
     },
 
     "require": {
-        "php": ">=5.3"
+        "php": ">=5.5.*"
     },
 
     "require-dev": {

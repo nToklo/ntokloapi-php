@@ -44,6 +44,7 @@ class NtokloApi{
      */
     public function postEvent($data){
 
+        $data = $this->checkForUvVersion($data);
         $resp = $this->api_base->api_request('POST', $uri = '/event', $data );
         if($resp == 0){
             return true;
@@ -68,6 +69,7 @@ class NtokloApi{
      * @return bool
      */
     public function postProduct($data){
+        $data = $this->checkForUvVersion($data);
         $resp = $this->api_base->api_request('POST', $uri = '/products', $data );
 
         if($resp == 0){
@@ -215,5 +217,22 @@ class NtokloApi{
             unset($param[$key]);
         }
         return $param;
+    }
+
+
+    /**
+     * This function will check for the uv version, if don't exist it will
+     * insert the latest version.
+     *
+     * @return array
+     */
+    protected function checkForUvVersion($data){
+
+        if (array_key_exists("version", $data)){
+            return $data;
+        }else{
+            $data['version'] = "1.2";
+            return $data;
+        }
     }
 }
